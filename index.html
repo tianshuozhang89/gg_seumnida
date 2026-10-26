@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeju Island 234km Coastal Brompton Tour (August 2027)</title>
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --accent: #2563EB;
+      --marriott: #B45309;
+      --marriott-bg: #FEF3C7;
+      --green: #15803D;
+      --green-bg: #DCFCE7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 1040px; margin: 0 auto; }
+    
+    .hero {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      color: #FFFFFF;
+      padding: 40px 32px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; line-height: 1.25; }
+    .hero p { color: #94A3B8; font-size: 16px; max-width: 760px; margin-bottom: 24px; }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 16px;
+      border-radius: 12px;
+    }
+    .stat-val { font-size: 24px; font-weight: 800; color: #FFFFFF; }
+    .stat-lbl { font-size: 12px; color: #94A3B8; text-transform: uppercase; font-weight: 600; }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .flights-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .flight-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .flight-row:last-child { border-bottom: none; }
+    .flight-badge {
+      background: #F1F5F9;
+      color: #334155;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .stage-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+    }
+    .stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .stage-title-wrap { display: flex; align-items: center; gap: 12px; }
+    .stage-badge {
+      background: #EFF6FF;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+    .stage-name { font-size: 18px; font-weight: 700; }
+    .stage-metrics { text-align: right; }
+    .stage-dist { font-size: 20px; font-weight: 800; color: var(--accent); }
+    .stage-time { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    .stage-body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .stage-body { grid-template-columns: 1fr; }
+    }
+
+    .detail-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .detail-block {
+      background: #F8FAFC;
+      border: 1px solid #F1F5F9;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .detail-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .detail-val { font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 2px; }
+    .detail-sub { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+    
+    .marriott-tag {
+      display: inline-flex;
+      align-items: center;
+      background: var(--marriott-bg);
+      color: var(--marriott);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    .highlight-card {
+      background: #EFF6FF;
+      border: 1.5px solid #BFDBFE;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .highlight-card h3 { color: #1E40AF; font-size: 18px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .highlight-card p { font-size: 14px; color: #1E3A8A; line-height: 1.6; margin-bottom: 8px; }
+    .highlight-card ul { padding-left: 20px; font-size: 14px; color: #1E3A8A; }
+    .highlight-card li { margin-bottom: 6px; }
+
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .info-card ul { padding-left: 20px; margin-top: 8px; }
+    .info-card li { margin-bottom: 8px; font-size: 14px; color: #334155; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Hero Banner -->
+    <div class="hero">
+      <div class="hero-badge">Brompton Coastal Expedition · August 2027</div>
+      <h1>🚴 Jeju Island 234km Coastal Brompton Tour</h1>
+      <p>5 Nights / 6 Days · Scoot Direct Non-Stop Flights · Pure Counter-Clockwise Coastal Perimeter · 100% Brompton Folding Bikes · 4/5 Nights Marriott Bonvoy Luxury Resorts · Zero Baggage Weight.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">234 km</div>
+          <div class="stat-lbl">Total Coastal Loop</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">~47 km</div>
+          <div class="stat-lbl">Daily Average</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">~2.5 Hours</div>
+          <div class="stat-lbl">Leisurely Brompton Pace</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">4 / 5 Nights</div>
+          <div class="stat-lbl">Marriott Bonvoy Resorts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flight Information -->
+    <div class="section-title">✈️ Confirmed Flight Schedule (Scoot Direct)</div>
+    <div class="flights-card">
+      <div class="flight-row">
+        <div>
+          <span class="flight-badge">OUTBOUND</span>
+          <strong style="margin-left: 10px;">Singapore (SIN) ➔ Jeju (CJU)</strong>
+          <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Scoot TR 828 · Airbus A320neo · 5h 50m Duration</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 16px; font-weight: 700;">Fri, 06 Aug · 00:35 ➔ 07:25</div>
+          <div style="font-size: 12px; color: #15803D; font-weight: 600;">Store Vincita Bags at CJU 1F ➔ Unfold Bromptons ➔ Ride Out!</div>
+        </div>
+      </div>
+      <div class="flight-row">
+        <div>
+          <span class="flight-badge">INBOUND</span>
+          <strong style="margin-left: 10px;">Jeju (CJU) ➔ Singapore (SIN)</strong>
+          <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Scoot TR 829 · Airbus A320neo · 6h 05m Duration</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 16px; font-weight: 700;">Wed, 11 Aug · 09:30 ➔ 14:35</div>
+          <div style="font-size: 12px; color: #2563EB; font-weight: 600;">10-Min Taxi from Sheraton ➔ Retrieve Vincita Bags ➔ Fly Home</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Stages with Globe Maps -->
+    <div class="section-title">🗺️ Daily 5-Stage Coastal Route &amp; Cartographic Progress Maps</div>
+
+    <!-- Stage 1 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title-wrap">
+          <span class="stage-badge">STAGE 1</span>
+          <div>
+            <div class="stage-name">Friday, 06 Aug · Northwest Coast &amp; Red-Eye Recovery</div>
+            <div style="font-size: 12px; color: var(--text-muted);">CJU Airport ➔ Aewol Coastal Road ➔ Shinhwa World</div>
+          </div>
+        </div>
+        <div class="stage-metrics">
+          <div class="stage-dist">35 km</div>
+          <div class="stage-time">~1.5h · Easy Brompton Roll</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="detail-grid">
+          <div class="detail-block">
+            <div class="detail-label">🏨 Accommodation (Night 1)</div>
+            <div class="detail-val">Jeju Shinhwa World Marriott Resort <span class="marriott-tag">MARRIOTT</span></div>
+            <div class="detail-sub">Southwest Jeju · World-class resort rooms, luxury spa, and restorative hot springs to melt red-eye fatigue. Folded Bromptons roll straight to your room!</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">☕ Coffee &amp; Dining</div>
+            <div class="detail-val">Bomnal Cafe (봄날) &amp; Warm Abalone Porridge</div>
+            <div class="detail-sub">Seaside coffee overlooking turquoise ocean; comforting seafood hot pot along Aewol road. Fold your Brompton right next to your cafe table!</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">📸 Must-Go / IG Spot</div>
+            <div class="detail-val">Handam Coastal Trail &amp; Basalt Cliffs</div>
+            <div class="detail-sub">Cruising past striking black volcanic basalt rocks meeting vibrant teal coastal waters.</div>
+          </div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" width="100%" height="220" style="background:#0F172A; border-radius:14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <defs>
+        <radialGradient id="oceanGrad1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </radialGradient>
+        <linearGradient id="routeGlow1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8"/>
+          <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+      </defs>
+      <rect width="340" height="220" rx="14" fill="url(#oceanGrad1)"/>
+      <line x1="20" y1="110" x2="320" y2="110" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <line x1="170" y1="20" x2="170" y2="200" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <path d="M 170 25 C 120 25, 80 40, 68 58 C 45 80, 20 105, 28 135 C 38 168, 100 195, 160 195 C 215 195, 245 180, 270 170 C 305 156, 335 132, 328 100 C 318 68, 285 35, 255 35 C 225 28, 195 25, 170 25 Z" fill="#1E293B" opacity="0.5"/>
+      <path d="M 170 30 C 125 30, 88 44, 78 58 C 58 76, 35 98, 42 124 C 50 152, 105 176, 160 176 C 205 176, 235 165, 255 155 C 285 142, 315 122, 308 96 C 300 70, 272 44, 248 44 C 220 38, 195 30, 170 30 Z" fill="#334155" stroke="#475569" stroke-width="1"/>
+      <ellipse cx="170" cy="108" rx="45" ry="24" fill="#3F4E66" opacity="0.6"/>
+      <ellipse cx="170" cy="108" rx="26" ry="14" fill="#4B5E7E" opacity="0.7"/>
+      <circle cx="170" cy="108" r="3.5" fill="#F8FAFC"/>
+      <text x="170" y="99" font-family="-apple-system,sans-serif" font-size="7.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">Mt. Hallasan</text>
+      <text x="170" y="122" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8" text-anchor="middle">1,950m</text>
+      <circle cx="170" cy="35" r="2" fill="#94A3B8"/>
+      <text x="170" y="27" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Jeju City (CJU)</text>
+      <circle cx="75" cy="58" r="1.5" fill="#94A3B8"/>
+      <text x="56" y="55" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Hyeopjae</text>
+      <circle cx="160" cy="180" r="1.5" fill="#94A3B8"/>
+      <text x="160" y="192" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Seogwipo</text>
+      <circle cx="310" cy="102" r="1.5" fill="#94A3B8"/>
+      <text x="314" y="105" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Seongsan</text>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48 C 225 42, 195 35, 170 35 Z" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3 3"/>
+      
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126" fill="none" stroke="url(#routeGlow1)" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(295, 20)">
+        <circle cx="15" cy="15" r="12" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+        <path d="M 19 11 A 6 6 0 1 0 19 19" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <polyline points="18,8 21,11 18,14" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <text x="15" y="18" font-family="-apple-system,sans-serif" font-size="6.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">CCW</text>
+      </g>
+      <circle cx="170" cy="35" r="4" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5"/>
+      <circle cx="48" cy="126" r="4.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+      <rect x="14" y="12" width="165" height="22" rx="11" fill="#2563EB" opacity="0.95"/>
+      <text x="96" y="26.5" font-family="-apple-system,sans-serif" font-size="9" fill="#FFFFFF" font-weight="800" text-anchor="middle" letter-spacing="0.5px">STAGE 1 OF 5 · 15% DONE</text>
+      <rect x="14" y="188" width="312" height="22" rx="6" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="0.8"/>
+      <text x="24" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#94A3B8">STAGE: <tspan fill="#38BDF8" font-weight="700">35 KM</tspan> · GAIN: <tspan fill="#F8FAFC" font-weight="700">+280M</tspan></text>
+      <text x="318" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A855F7" font-weight="700" text-anchor="end">TERRAIN: PAVED COAST</text>
+    </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title-wrap">
+          <span class="stage-badge">STAGE 2</span>
+          <div>
+            <div class="stage-name">Saturday, 07 Aug · Windmill Sea Bridge &amp; Southern Riviera</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Shinhwa ➔ Sinchang Windmills ➔ Sanbangsan ➔ Seogwipo Cliffs</div>
+          </div>
+        </div>
+        <div class="stage-metrics">
+          <div class="stage-dist">52 km</div>
+          <div class="stage-time">~2.5h · Seaside Promenade</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="detail-grid">
+          <div class="detail-block">
+            <div class="detail-label">🏨 Accommodation (Night 2)</div>
+            <div class="detail-val">JW Marriott Jeju Resort &amp; Spa <span class="marriott-tag">JW MARRIOTT</span></div>
+            <div class="detail-sub">Seogwipo Coastal Cliffs · Designed by Bill Bensley. Perched on volcanic bluffs overlooking the ocean. Peak luxury.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">☕ Coffee &amp; Dining</div>
+            <div class="detail-val">One &amp; Only Cafe &amp; Grilled Cutlassfish</div>
+            <div class="detail-sub">Iconic cafe directly under Sanbangsan mountain; authentic multi-course grilled giant cutlassfish (갈치구이).</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">📸 Must-Go / IG Spot</div>
+            <div class="detail-val">Sinchang Windmill Ocean Bridge</div>
+            <div class="detail-sub">Cycle directly over ocean walkways beneath towering offshore wind turbines spinning above the sea.</div>
+          </div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" width="100%" height="220" style="background:#0F172A; border-radius:14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <defs>
+        <radialGradient id="oceanGrad2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </radialGradient>
+        <linearGradient id="routeGlow2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8"/>
+          <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+      </defs>
+      <rect width="340" height="220" rx="14" fill="url(#oceanGrad2)"/>
+      <line x1="20" y1="110" x2="320" y2="110" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <line x1="170" y1="20" x2="170" y2="200" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <path d="M 170 25 C 120 25, 80 40, 68 58 C 45 80, 20 105, 28 135 C 38 168, 100 195, 160 195 C 215 195, 245 180, 270 170 C 305 156, 335 132, 328 100 C 318 68, 285 35, 255 35 C 225 28, 195 25, 170 25 Z" fill="#1E293B" opacity="0.5"/>
+      <path d="M 170 30 C 125 30, 88 44, 78 58 C 58 76, 35 98, 42 124 C 50 152, 105 176, 160 176 C 205 176, 235 165, 255 155 C 285 142, 315 122, 308 96 C 300 70, 272 44, 248 44 C 220 38, 195 30, 170 30 Z" fill="#334155" stroke="#475569" stroke-width="1"/>
+      <ellipse cx="170" cy="108" rx="45" ry="24" fill="#3F4E66" opacity="0.6"/>
+      <ellipse cx="170" cy="108" rx="26" ry="14" fill="#4B5E7E" opacity="0.7"/>
+      <circle cx="170" cy="108" r="3.5" fill="#F8FAFC"/>
+      <text x="170" y="99" font-family="-apple-system,sans-serif" font-size="7.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">Mt. Hallasan</text>
+      <text x="170" y="122" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8" text-anchor="middle">1,950m</text>
+      <circle cx="170" cy="35" r="2" fill="#94A3B8"/>
+      <text x="170" y="27" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Jeju City (CJU)</text>
+      <circle cx="75" cy="58" r="1.5" fill="#94A3B8"/>
+      <text x="56" y="55" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Hyeopjae</text>
+      <circle cx="160" cy="180" r="1.5" fill="#94A3B8"/>
+      <text x="160" y="192" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Seogwipo</text>
+      <circle cx="310" cy="102" r="1.5" fill="#94A3B8"/>
+      <text x="314" y="105" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Seongsan</text>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48 C 225 42, 195 35, 170 35 Z" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3 3"/>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      <path d="M 48 126 C 55 155, 110 180, 160 180" fill="none" stroke="url(#routeGlow2)" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(295, 20)">
+        <circle cx="15" cy="15" r="12" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+        <path d="M 19 11 A 6 6 0 1 0 19 19" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <polyline points="18,8 21,11 18,14" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <text x="15" y="18" font-family="-apple-system,sans-serif" font-size="6.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">CCW</text>
+      </g>
+      <circle cx="48" cy="126" r="4" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5"/>
+      <circle cx="160" cy="180" r="4.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+      <rect x="14" y="12" width="165" height="22" rx="11" fill="#2563EB" opacity="0.95"/>
+      <text x="96" y="26.5" font-family="-apple-system,sans-serif" font-size="9" fill="#FFFFFF" font-weight="800" text-anchor="middle" letter-spacing="0.5px">STAGE 2 OF 5 · 37% DONE</text>
+      <rect x="14" y="188" width="312" height="22" rx="6" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="0.8"/>
+      <text x="24" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#94A3B8">STAGE: <tspan fill="#38BDF8" font-weight="700">52 KM</tspan> · GAIN: <tspan fill="#F8FAFC" font-weight="700">+420M</tspan></text>
+      <text x="318" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A855F7" font-weight="700" text-anchor="end">TERRAIN: PAVED COAST</text>
+    </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title-wrap">
+          <span class="stage-badge">STAGE 3</span>
+          <div>
+            <div class="stage-name">Sunday, 08 Aug · Coastal Waterfalls &amp; Citrus Groves</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Seogwipo ➔ Jeongbang Waterfall ➔ Namwon ➔ Pyoseon Beach</div>
+          </div>
+        </div>
+        <div class="stage-metrics">
+          <div class="stage-dist">52 km</div>
+          <div class="stage-time">~2.5h · Flat Scenic Cruising</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="detail-grid">
+          <div class="detail-block">
+            <div class="detail-label">🏨 Accommodation (Night 3)</div>
+            <div class="detail-val">Haevichi Hotel &amp; Resort Jeju</div>
+            <div class="detail-sub">Pyoseon Beachfront · 5-Star luxury resort directly on the coastal bike path. Large balconies with ocean breeze.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">☕ Coffee &amp; Dining</div>
+            <div class="detail-val">Vadada Ocean Lounge &amp; Cold Raw Fish Soup</div>
+            <div class="detail-sub">Cliffside DJ lounge cafe; refreshing icy cold raw fish soup (물회) and fresh mandarin sorbet.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">📸 Must-Go / IG Spot</div>
+            <div class="detail-val">Jeongbang Waterfall &amp; Oedolgae Rock</div>
+            <div class="detail-sub">The only waterfall in Asia plunging directly into the ocean; coastal pine tree trails.</div>
+          </div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" width="100%" height="220" style="background:#0F172A; border-radius:14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <defs>
+        <radialGradient id="oceanGrad3" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </radialGradient>
+        <linearGradient id="routeGlow3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8"/>
+          <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+      </defs>
+      <rect width="340" height="220" rx="14" fill="url(#oceanGrad3)"/>
+      <line x1="20" y1="110" x2="320" y2="110" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <line x1="170" y1="20" x2="170" y2="200" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <path d="M 170 25 C 120 25, 80 40, 68 58 C 45 80, 20 105, 28 135 C 38 168, 100 195, 160 195 C 215 195, 245 180, 270 170 C 305 156, 335 132, 328 100 C 318 68, 285 35, 255 35 C 225 28, 195 25, 170 25 Z" fill="#1E293B" opacity="0.5"/>
+      <path d="M 170 30 C 125 30, 88 44, 78 58 C 58 76, 35 98, 42 124 C 50 152, 105 176, 160 176 C 205 176, 235 165, 255 155 C 285 142, 315 122, 308 96 C 300 70, 272 44, 248 44 C 220 38, 195 30, 170 30 Z" fill="#334155" stroke="#475569" stroke-width="1"/>
+      <ellipse cx="170" cy="108" rx="45" ry="24" fill="#3F4E66" opacity="0.6"/>
+      <ellipse cx="170" cy="108" rx="26" ry="14" fill="#4B5E7E" opacity="0.7"/>
+      <circle cx="170" cy="108" r="3.5" fill="#F8FAFC"/>
+      <text x="170" y="99" font-family="-apple-system,sans-serif" font-size="7.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">Mt. Hallasan</text>
+      <text x="170" y="122" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8" text-anchor="middle">1,950m</text>
+      <circle cx="170" cy="35" r="2" fill="#94A3B8"/>
+      <text x="170" y="27" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Jeju City (CJU)</text>
+      <circle cx="75" cy="58" r="1.5" fill="#94A3B8"/>
+      <text x="56" y="55" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Hyeopjae</text>
+      <circle cx="160" cy="180" r="1.5" fill="#94A3B8"/>
+      <text x="160" y="192" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Seogwipo</text>
+      <circle cx="310" cy="102" r="1.5" fill="#94A3B8"/>
+      <text x="314" y="105" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Seongsan</text>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48 C 225 42, 195 35, 170 35 Z" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3 3"/>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      <path d="M 160 180 C 205 180, 230 168, 250 160" fill="none" stroke="url(#routeGlow3)" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(295, 20)">
+        <circle cx="15" cy="15" r="12" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+        <path d="M 19 11 A 6 6 0 1 0 19 19" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <polyline points="18,8 21,11 18,14" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <text x="15" y="18" font-family="-apple-system,sans-serif" font-size="6.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">CCW</text>
+      </g>
+      <circle cx="160" cy="180" r="4" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5"/>
+      <circle cx="250" cy="160" r="4.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+      <rect x="14" y="12" width="165" height="22" rx="11" fill="#2563EB" opacity="0.95"/>
+      <text x="96" y="26.5" font-family="-apple-system,sans-serif" font-size="9" fill="#FFFFFF" font-weight="800" text-anchor="middle" letter-spacing="0.5px">STAGE 3 OF 5 · 59% DONE</text>
+      <rect x="14" y="188" width="312" height="22" rx="6" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="0.8"/>
+      <text x="24" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#94A3B8">STAGE: <tspan fill="#38BDF8" font-weight="700">52 KM</tspan> · GAIN: <tspan fill="#F8FAFC" font-weight="700">+390M</tspan></text>
+      <text x="318" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A855F7" font-weight="700" text-anchor="end">TERRAIN: PAVED COAST</text>
+    </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4 -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title-wrap">
+          <span class="stage-badge">STAGE 4</span>
+          <div>
+            <div class="stage-name">Monday, 09 Aug · Sunrise Peak Crater &amp; White Sands</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Pyoseon ➔ Seopjikoji ➔ Seongsan Crater ➔ Woljeongri Beach</div>
+          </div>
+        </div>
+        <div class="stage-metrics">
+          <div class="stage-dist">51 km</div>
+          <div class="stage-time">~2.5h · Coastal Breezes</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="detail-grid">
+          <div class="detail-block">
+            <div class="detail-label">🏨 Accommodation (Night 4)</div>
+            <div class="detail-val">Phoenix Island Seopjikoji</div>
+            <div class="detail-sub">Surrounded by ocean on three sides. Located adjacent to Tadao Ando’s famous Glass House &amp; Yumin Art Museum.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">☕ Coffee &amp; Dining</div>
+            <div class="detail-val">Cafe Mou Moon &amp; Abalone Stone Pot Rice</div>
+            <div class="detail-sub">Seamless floor-to-ceiling panoramic glass over teal waters; steaming hot abalone stone pot rice (전복돌솥밥).</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">📸 Must-Go / IG Spot</div>
+            <div class="detail-val">Seongsan Ilchulbong &amp; Woljeongri Chairs</div>
+            <div class="detail-sub">Massive volcanic tuff cone rising out of the sea; famous primary-colored wooden chairs on pure white sand.</div>
+          </div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" width="100%" height="220" style="background:#0F172A; border-radius:14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <defs>
+        <radialGradient id="oceanGrad4" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </radialGradient>
+        <linearGradient id="routeGlow4" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8"/>
+          <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+      </defs>
+      <rect width="340" height="220" rx="14" fill="url(#oceanGrad4)"/>
+      <line x1="20" y1="110" x2="320" y2="110" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <line x1="170" y1="20" x2="170" y2="200" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <path d="M 170 25 C 120 25, 80 40, 68 58 C 45 80, 20 105, 28 135 C 38 168, 100 195, 160 195 C 215 195, 245 180, 270 170 C 305 156, 335 132, 328 100 C 318 68, 285 35, 255 35 C 225 28, 195 25, 170 25 Z" fill="#1E293B" opacity="0.5"/>
+      <path d="M 170 30 C 125 30, 88 44, 78 58 C 58 76, 35 98, 42 124 C 50 152, 105 176, 160 176 C 205 176, 235 165, 255 155 C 285 142, 315 122, 308 96 C 300 70, 272 44, 248 44 C 220 38, 195 30, 170 30 Z" fill="#334155" stroke="#475569" stroke-width="1"/>
+      <ellipse cx="170" cy="108" rx="45" ry="24" fill="#3F4E66" opacity="0.6"/>
+      <ellipse cx="170" cy="108" rx="26" ry="14" fill="#4B5E7E" opacity="0.7"/>
+      <circle cx="170" cy="108" r="3.5" fill="#F8FAFC"/>
+      <text x="170" y="99" font-family="-apple-system,sans-serif" font-size="7.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">Mt. Hallasan</text>
+      <text x="170" y="122" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8" text-anchor="middle">1,950m</text>
+      <circle cx="170" cy="35" r="2" fill="#94A3B8"/>
+      <text x="170" y="27" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Jeju City (CJU)</text>
+      <circle cx="75" cy="58" r="1.5" fill="#94A3B8"/>
+      <text x="56" y="55" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Hyeopjae</text>
+      <circle cx="160" cy="180" r="1.5" fill="#94A3B8"/>
+      <text x="160" y="192" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Seogwipo</text>
+      <circle cx="310" cy="102" r="1.5" fill="#94A3B8"/>
+      <text x="314" y="105" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Seongsan</text>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48 C 225 42, 195 35, 170 35 Z" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3 3"/>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      <path d="M 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48" fill="none" stroke="url(#routeGlow4)" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(295, 20)">
+        <circle cx="15" cy="15" r="12" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+        <path d="M 19 11 A 6 6 0 1 0 19 19" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <polyline points="18,8 21,11 18,14" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <text x="15" y="18" font-family="-apple-system,sans-serif" font-size="6.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">CCW</text>
+      </g>
+      <circle cx="250" cy="160" r="4" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5"/>
+      <circle cx="250" cy="48" r="4.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+      <rect x="14" y="12" width="165" height="22" rx="11" fill="#2563EB" opacity="0.95"/>
+      <text x="96" y="26.5" font-family="-apple-system,sans-serif" font-size="9" fill="#FFFFFF" font-weight="800" text-anchor="middle" letter-spacing="0.5px">STAGE 4 OF 5 · 81% DONE</text>
+      <rect x="14" y="188" width="312" height="22" rx="6" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="0.8"/>
+      <text x="24" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#94A3B8">STAGE: <tspan fill="#38BDF8" font-weight="700">51 KM</tspan> · GAIN: <tspan fill="#F8FAFC" font-weight="700">+310M</tspan></text>
+      <text x="318" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A855F7" font-weight="700" text-anchor="end">TERRAIN: PAVED COAST</text>
+    </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 5 -->
+    <div class="stage-card" style="border: 2px solid var(--accent);">
+      <div class="stage-header">
+        <div class="stage-title-wrap">
+          <span class="stage-badge" style="background: #DCFCE7; color: #15803D;">STAGE 5 · FINISH</span>
+          <div>
+            <div class="stage-name">Tuesday, 10 Aug · Emerald Coast &amp; The 234km Finish Line!</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Woljeongri ➔ Hamdeok Beach ➔ Yongduam Rock (Jeju City)</div>
+          </div>
+        </div>
+        <div class="stage-metrics">
+          <div class="stage-dist" style="color: #15803D;">49 km</div>
+          <div class="stage-time">★ 234km Loop Complete!</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="detail-grid">
+          <div class="detail-block">
+            <div class="detail-label">🏨 Accommodation (Night 5 · Airport Base)</div>
+            <div class="detail-val">Sheraton Jeju Hotel (Tapdong) <span class="marriott-tag">MARRIOTT</span></div>
+            <div class="detail-sub">Oceanfront Tapdong · <b>Strictly 10 minutes from Jeju Airport!</b> Fold Bromptons and pack into travel soft cases in 2 minutes.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">☕ Coffee &amp; Dining</div>
+            <div class="detail-val">Cafe Delmoondo &amp; Jeju Black Pork BBQ Feast</div>
+            <div class="detail-sub">Cafe built on stilts directly over breaking ocean waves; celebratory thick-cut Black Pork BBQ dinner.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">📸 Must-Go / IG Spot</div>
+            <div class="detail-val">Hamdeok Emerald Bay &amp; Yongduam 10th Stamp</div>
+            <div class="detail-sub">Jeju’s clearest crystal waters; collect the final 10th official red certification booth stamp!</div>
+          </div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" width="100%" height="220" style="background:#0F172A; border-radius:14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <defs>
+        <radialGradient id="oceanGrad5" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </radialGradient>
+        <linearGradient id="routeGlow5" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8"/>
+          <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+      </defs>
+      <rect width="340" height="220" rx="14" fill="url(#oceanGrad5)"/>
+      <line x1="20" y1="110" x2="320" y2="110" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <line x1="170" y1="20" x2="170" y2="200" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <path d="M 170 25 C 120 25, 80 40, 68 58 C 45 80, 20 105, 28 135 C 38 168, 100 195, 160 195 C 215 195, 245 180, 270 170 C 305 156, 335 132, 328 100 C 318 68, 285 35, 255 35 C 225 28, 195 25, 170 25 Z" fill="#1E293B" opacity="0.5"/>
+      <path d="M 170 30 C 125 30, 88 44, 78 58 C 58 76, 35 98, 42 124 C 50 152, 105 176, 160 176 C 205 176, 235 165, 255 155 C 285 142, 315 122, 308 96 C 300 70, 272 44, 248 44 C 220 38, 195 30, 170 30 Z" fill="#334155" stroke="#475569" stroke-width="1"/>
+      <ellipse cx="170" cy="108" rx="45" ry="24" fill="#3F4E66" opacity="0.6"/>
+      <ellipse cx="170" cy="108" rx="26" ry="14" fill="#4B5E7E" opacity="0.7"/>
+      <circle cx="170" cy="108" r="3.5" fill="#F8FAFC"/>
+      <text x="170" y="99" font-family="-apple-system,sans-serif" font-size="7.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">Mt. Hallasan</text>
+      <text x="170" y="122" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8" text-anchor="middle">1,950m</text>
+      <circle cx="170" cy="35" r="2" fill="#94A3B8"/>
+      <text x="170" y="27" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Jeju City (CJU)</text>
+      <circle cx="75" cy="58" r="1.5" fill="#94A3B8"/>
+      <text x="56" y="55" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Hyeopjae</text>
+      <circle cx="160" cy="180" r="1.5" fill="#94A3B8"/>
+      <text x="160" y="192" font-family="-apple-system,sans-serif" font-size="7" fill="#CBD5E1" text-anchor="middle">Seogwipo</text>
+      <circle cx="310" cy="102" r="1.5" fill="#94A3B8"/>
+      <text x="314" y="105" font-family="-apple-system,sans-serif" font-size="6.5" fill="#94A3B8">Seongsan</text>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48 C 225 42, 195 35, 170 35 Z" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3 3"/>
+      <path d="M 170 35 C 130 35, 95 48, 85 62 C 65 80, 42 100, 48 126 C 55 155, 110 180, 160 180 C 205 180, 230 168, 250 160 C 280 148, 318 128, 310 102 C 302 76, 275 48, 250 48" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      <path d="M 250 48 C 225 42, 195 35, 170 35" fill="none" stroke="url(#routeGlow5)" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(295, 20)">
+        <circle cx="15" cy="15" r="12" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+        <path d="M 19 11 A 6 6 0 1 0 19 19" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <polyline points="18,8 21,11 18,14" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+        <text x="15" y="18" font-family="-apple-system,sans-serif" font-size="6.5" fill="#E2E8F0" font-weight="700" text-anchor="middle">CCW</text>
+      </g>
+      <circle cx="250" cy="48" r="4" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5"/>
+      <circle cx="170" cy="35" r="4.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+      <rect x="14" y="12" width="165" height="22" rx="11" fill="#10B981" opacity="0.95"/>
+      <text x="96" y="26.5" font-family="-apple-system,sans-serif" font-size="9" fill="#FFFFFF" font-weight="800" text-anchor="middle" letter-spacing="0.5px">STAGE 5: 100% COMPLETE!</text>
+      <rect x="14" y="188" width="312" height="22" rx="6" fill="#1E293B" fill-opacity="0.9" stroke="#334155" stroke-width="0.8"/>
+      <text x="24" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#94A3B8">STAGE: <tspan fill="#38BDF8" font-weight="700">49 KM</tspan> · GAIN: <tspan fill="#F8FAFC" font-weight="700">+260M</tspan></text>
+      <text x="318" y="202.5" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A855F7" font-weight="700" text-anchor="end">TERRAIN: PAVED COAST</text>
+    </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Vincita Airport Storage Strategy -->
+    <div class="highlight-card">
+      <h3>🧳 The Airport Vincita Luggage Storage Strategy (Pure Freedom)</h3>
+      <p>Instead of hauling empty, bulky bike travel bags around the island each day, leverage Jeju International Airport’s dedicated left-luggage service:</p>
+      <ul>
+        <li><b>Step 1 (Day 1 Arrival · 07:25 AM):</b> Unfold your Bromptons in 15 seconds outside the arrivals hall.</li>
+        <li><b>Step 2 (Store Vincita Bags at CJU Airport):</b> Head to the <b>CJU Airport Luggage Storage Desk (ZimCarry / 짐보관소, 1F near Gate 5)</b>. Check in your empty Vincita Brompton travel bags for 5 days of secure holding (~$7–$8 SGD / 6,000–8,000 KRW per day).</li>
+        <li><b>Step 3 (Cycle Directly Away):</b> Mount your Bromptons and pedal directly out of the airport terminal onto the coastal road with zero baggage anchor!</li>
+        <li><b>Step 4 (Luggage Delivery for Clothes):</b> Send your standard clothing suitcases from hotel to hotel each day using <b>ZimCarry / Gabang-i-man</b> (~$15 SGD/day).</li>
+        <li><b>Step 5 (Day 6 Departure Morning):</b> Take a 10-minute taxi from the Sheraton Jeju Hotel to CJU Airport, retrieve your Vincita travel bags from the 1F storage counter, fold your Bromptons inside in 2 minutes, and roll up to the Scoot check-in counter!</li>
+      </ul>
+    </div>
+
+    <!-- General Logistics -->
+    <div class="section-title">💡 Essential Pre-Trip Briefing</div>
+    <div class="info-card">
+      <ul>
+        <li><b>The Brompton Advantage:</b> Zero bike wrenching! At seaside cafes and restaurants, simply fold your Bromptons and roll them inside or park them next to your table with zero theft concerns.</li>
+        <li><b>Navigation Rules:</b> Follow the continuous <b>blue line</b> painted on the coastal tarmac. Always ride <b>counter-clockwise</b> to keep the ocean immediately on your right.</li>
+        <li><b>Immigration &amp; Entry:</b> Eligible passport holders enjoy 90 days visa-free entry with K-ETA exemption. Submit the free electronic arrival card (e-Arrival Card at <code>www.e-arrivalcard.go.kr</code>) online within 72 hours before departure.</li>
+        <li><b>August Climate:</b> Warm coastal summer (27°C–31°C). Bring high-SPF sunblock, light summer cycling kit, and wind vest for early morning departures.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
