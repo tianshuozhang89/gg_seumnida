@@ -170,6 +170,28 @@
       border-radius: 4px;
       margin-left: 6px;
     }
+    .fourstar-tag {
+      display: inline-flex;
+      align-items: center;
+      background: #EFF6FF;
+      color: #1D4ED8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .price-tag {
+      display: inline-flex;
+      align-items: center;
+      background: #DCFCE7;
+      color: #15803D;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
 
     .highlight-card {
       background: #EFF6FF;
@@ -201,7 +223,7 @@
     <div class="hero">
       <div class="hero-badge">Brompton Coastal Expedition · August 2027</div>
       <h1>🚴 Jeju Island 234km Coastal Brompton Tour</h1>
-      <p>5 Nights / 6 Days · Scoot Direct Non-Stop Flights · Pure Counter-Clockwise Coastal Perimeter · 100% Brompton Folding Bikes · 4/5 Nights Marriott Bonvoy Luxury Resorts · Zero Baggage Weight.</p>
+      <p>5 Nights / 6 Days · Scoot Direct Non-Stop Flights (Confirmed &amp; Ticketed) · Pure Counter-Clockwise Coastal Perimeter · 100% Brompton Folding Bikes · 4-Star Safe &amp; Clean Hotels (~S$100/day) · Zero Baggage Weight.</p>
       
       <div class="stats-grid">
         <div class="stat-card">
@@ -217,15 +239,19 @@
           <div class="stat-lbl">Leisurely Brompton Pace</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">4 / 5 Nights</div>
-          <div class="stat-lbl">Marriott Bonvoy Resorts</div>
+          <div class="stat-val">~S$100 / Day</div>
+          <div class="stat-lbl">4-Star Hotel Target</div>
         </div>
       </div>
     </div>
 
     <!-- Flight Information -->
-    <div class="section-title">✈️ Confirmed Flight Schedule (Scoot Direct)</div>
+    <div class="section-title">✈️ Confirmed Flight Schedule (Scoot Direct · Ticketed)</div>
     <div class="flights-card">
+      <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 13px; color: #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+        <div><strong>PNR / Booking Ref:</strong> <code style="background: #EFF6FF; color: #1D4ED8; padding: 2px 8px; border-radius: 4px; font-weight: 700;">ACFNYT</code> · <strong>Riders:</strong> Tony Zhang, Soon Lung, Beaver</div>
+        <span style="background: #DCFCE7; color: #15803D; font-weight: 700; font-size: 11px; padding: 3px 8px; border-radius: 6px;">TICKETS PURCHASED</span>
+      </div>
       <div class="flight-row">
         <div>
           <span class="flight-badge">OUTBOUND</span>
@@ -245,7 +271,32 @@
         </div>
         <div style="text-align: right;">
           <div style="font-size: 16px; font-weight: 700;">Wed, 11 Aug · 09:30 ➔ 14:35</div>
-          <div style="font-size: 12px; color: #2563EB; font-weight: 600;">10-Min Taxi from Sheraton ➔ Retrieve Vincita Bags ➔ Fly Home</div>
+          <div style="font-size: 12px; color: #2563EB; font-weight: 600;">10-Min Taxi from Ocean Suites ➔ Retrieve Vincita Bags ➔ Fly Home</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Star Hotel Strategy & Room Logistics -->
+    <div class="section-title">🏨 4-Star Hotel Strategy &amp; Room Logistics (~S$100/Day Target)</div>
+    <div class="info-card" style="border-left: 4px solid var(--accent); margin-bottom: 32px;">
+      <p style="font-size: 14px; color: var(--text-main); margin-bottom: 12px;">
+        <strong>Pivoted from Marriott Bonvoy to 4-Star Value Optimization:</strong> Replaced excessive luxury rates (JW Marriott ~S$1,000/night, Shinhwa Marriott ~S$350/night) with highly-rated 4-star properties meeting three non-negotiable criteria: <strong>Safe</strong> (24h front desk, keycard elevators, indoor Brompton parking), <strong>Clean</strong> (8.5+ cleanliness rating), and <strong>Easy to Find</strong> (prominent coastal/avenue landmarks directly on the Jeju Fantasy Bike Path).
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px;">
+        <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: #1D4ED8; text-transform: uppercase;">Option A: 1 Family Twin / Triple Room</div>
+          <div style="font-size: 18px; font-weight: 800; color: #15803D; margin: 4px 0;">~S$80 – S$120 / Night Total</div>
+          <div style="font-size: 12px; color: var(--text-muted);">1 Double + 1 Single bed (or 3 singles) for all 3 riders. <strong>~S$27 – S$40 per person/day</strong>. Maximum cost efficiency.</div>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: #1D4ED8; text-transform: uppercase;">Option B: 2 Rooms (Twin + Solo)</div>
+          <div style="font-size: 18px; font-weight: 800; color: #15803D; margin: 4px 0;">~S$140 – S$180 / Night Total</div>
+          <div style="font-size: 12px; color: var(--text-muted);">1 Twin room (2 beds) + 1 Standard Single room. <strong>~S$47 – S$60 per person/day</strong>. Balanced privacy and comfort.</div>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: #1D4ED8; text-transform: uppercase;">Option C: 3 Solo Rooms</div>
+          <div style="font-size: 18px; font-weight: 800; color: #15803D; margin: 4px 0;">~S$70 – S$90 / Room / Night</div>
+          <div style="font-size: 12px; color: var(--text-muted);">Individual private room for each rider. <strong>~S$70 – S$90 per person/day</strong>, fully inside the S$100 daily target.</div>
         </div>
       </div>
     </div>
@@ -272,8 +323,9 @@
         <div class="detail-grid">
           <div class="detail-block">
             <div class="detail-label">🏨 Accommodation (Night 1)</div>
-            <div class="detail-val">Jeju Shinhwa World Marriott Resort <span class="marriott-tag">MARRIOTT</span></div>
-            <div class="detail-sub">Southwest Jeju · World-class resort rooms, luxury spa, and restorative hot springs to melt red-eye fatigue. Folded Bromptons roll straight to your room!</div>
+            <div class="detail-val">Landing Jeju Shinhwa World Hotels &amp; Resorts <span class="fourstar-tag">4/5-STAR</span> <span class="price-tag">~S$105–120</span></div>
+            <div class="detail-sub">Southwest Jeju · Replaces Shinhwa Marriott in the exact same resort grounds. Full resort facilities, dining avenue, 24h security, and wide elevators. Folded Bromptons roll straight to your room!</div>
+            <div style="margin-top: 6px; font-size: 11px; color: var(--text-muted);"><b>Coastal Alternative:</b> Aguila Hotel Jeju Oceano Suites (~S$85, Hyeopjae Beach · zero inland climbing) · <b>Group Suite:</b> Somerset Shinhwa 3-Bedroom Family Suite (~S$270 total / S$90 pp).</div>
           </div>
           <div class="detail-block">
             <div class="detail-label">☕ Coffee &amp; Dining</div>
@@ -356,8 +408,9 @@
         <div class="detail-grid">
           <div class="detail-block">
             <div class="detail-label">🏨 Accommodation (Night 2)</div>
-            <div class="detail-val">JW Marriott Jeju Resort &amp; Spa <span class="marriott-tag">JW MARRIOTT</span></div>
-            <div class="detail-sub">Seogwipo Coastal Cliffs · Designed by Bill Bensley. Perched on volcanic bluffs overlooking the ocean. Peak luxury.</div>
+            <div class="detail-val">Hotel Bridge Seogwipo <span class="fourstar-tag">4-STAR</span> <span class="price-tag">~S$55–75</span></div>
+            <div class="detail-sub">Seogwipo Harbor · Replaces JW Marriott. Prominent high-rise landmark above Seogwipo Port and Olle Market; impossible to miss. Modern, impeccably clean, rooftop hot tubs overlooking Saeseom Island and the bridge, 24h convenience store in lobby.</div>
+            <div style="margin-top: 6px; font-size: 11px; color: var(--text-muted);"><b>Cliff Luxury Alternative:</b> GoldOne Hotel &amp; Suites (~S$120, heated oceanfront infinity pool on cliffs 2km from JW Marriott).</div>
           </div>
           <div class="detail-block">
             <div class="detail-label">☕ Coffee &amp; Dining</div>
@@ -440,8 +493,9 @@
         <div class="detail-grid">
           <div class="detail-block">
             <div class="detail-label">🏨 Accommodation (Night 3)</div>
-            <div class="detail-val">Haevichi Hotel &amp; Resort Jeju</div>
-            <div class="detail-sub">Pyoseon Beachfront · 5-Star luxury resort directly on the coastal bike path. Large balconies with ocean breeze.</div>
+            <div class="detail-val">Sono Calm Jeju <span class="fourstar-tag">4-STAR RESORT</span> <span class="price-tag">~S$110–130</span></div>
+            <div class="detail-sub">Pyoseon Coastal Bluff · Replaces Haevichi. Established 4-star oceanfront resort directly on the coastal bike path (Olle Route 4). Manicured seaside palm gardens, infinity pool, immaculate rooms, on-site GS25 and restaurants.</div>
+            <div style="margin-top: 6px; font-size: 11px; color: var(--text-muted);"><b>Seongsan (+18km) Alternative:</b> Golden Tulip Jeju Seongsan Hotel (~S$75, rooftop pool facing Seongsan Ilchulbong sunrise).</div>
           </div>
           <div class="detail-block">
             <div class="detail-label">☕ Coffee &amp; Dining</div>
@@ -524,8 +578,9 @@
         <div class="detail-grid">
           <div class="detail-block">
             <div class="detail-label">🏨 Accommodation (Night 4)</div>
-            <div class="detail-val">Phoenix Island Seopjikoji</div>
-            <div class="detail-sub">Surrounded by ocean on three sides. Located adjacent to Tadao Ando’s famous Glass House &amp; Yumin Art Museum.</div>
+            <div class="detail-val">Utop Ubless Hotel Jeju Hamdeok <span class="fourstar-tag">4-STAR</span> <span class="price-tag">~S$80–100</span></div>
+            <div class="detail-sub">Hamdeok Emerald Beach · Replaces Phoenix Island. Located directly across the promenade from Hamdeok Beach and Cafe Delmoondo. Clear landmark on the coastal road, rooftop hot tubs, CU convenience store in lobby, indoor elevator access.</div>
+            <div style="margin-top: 6px; font-size: 11px; color: var(--text-muted);"><b>Resort Alternative:</b> Sono Belle Jeju (Hamdeok, ~S$105) · <b>Seongsan Base:</b> The Best Jeju Seongsan (~S$65).</div>
           </div>
           <div class="detail-block">
             <div class="detail-label">☕ Coffee &amp; Dining</div>
@@ -608,8 +663,9 @@
         <div class="detail-grid">
           <div class="detail-block">
             <div class="detail-label">🏨 Accommodation (Night 5 · Airport Base)</div>
-            <div class="detail-val">Sheraton Jeju Hotel (Tapdong) <span class="marriott-tag">MARRIOTT</span></div>
-            <div class="detail-sub">Oceanfront Tapdong · <b>Strictly 10 minutes from Jeju Airport!</b> Fold Bromptons and pack into travel soft cases in 2 minutes.</div>
+            <div class="detail-val">Ocean Suites Jeju Hotel (Tapdong) <span class="fourstar-tag">4-STAR</span> <span class="price-tag">~S$85–105</span></div>
+            <div class="detail-sub">Oceanfront Tapdong · Replaces Sheraton. <b>Strictly 10 minutes from Jeju Airport!</b> Full-service 4-star hotel directly on Tapdong seaside promenade where the 234km loop officially ends. Spacious ocean rooms, spotless, wide lobby to fold and bag Bromptons.</div>
+            <div style="margin-top: 6px; font-size: 11px; color: var(--text-muted);"><b>Tapdong Waterfront Alt:</b> Hotel RegentMarine The Blue (~S$75) · <b>Downtown Alt:</b> Shilla Stay Jeju (Yeon-dong, ~S$100 · 8m to CJU).</div>
           </div>
           <div class="detail-block">
             <div class="detail-label">☕ Coffee &amp; Dining</div>
@@ -682,7 +738,7 @@
         <li><b>Step 2 (Store Vincita Bags at CJU Airport):</b> Head to the <b>CJU Airport Luggage Storage Desk (ZimCarry / 짐보관소, 1F near Gate 5)</b>. Check in your empty Vincita Brompton travel bags for 5 days of secure holding (~$7–$8 SGD / 6,000–8,000 KRW per day).</li>
         <li><b>Step 3 (Cycle Directly Away):</b> Mount your Bromptons and pedal directly out of the airport terminal onto the coastal road with zero baggage anchor!</li>
         <li><b>Step 4 (Luggage Delivery for Clothes):</b> Send your standard clothing suitcases from hotel to hotel each day using <b>ZimCarry / Gabang-i-man</b> (~$15 SGD/day).</li>
-        <li><b>Step 5 (Day 6 Departure Morning):</b> Take a 10-minute taxi from the Sheraton Jeju Hotel to CJU Airport, retrieve your Vincita travel bags from the 1F storage counter, fold your Bromptons inside in 2 minutes, and roll up to the Scoot check-in counter!</li>
+        <li><b>Step 5 (Day 6 Departure Morning):</b> Take a 10-minute taxi from Ocean Suites Jeju Hotel to CJU Airport, retrieve your Vincita travel bags from the 1F storage counter (Gate 5), fold your Bromptons inside in 2 minutes, and check in for Scoot TR 829 (09:30 AM departure)!</li>
       </ul>
     </div>
 
